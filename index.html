@@ -49,6 +49,8 @@ var muertetext;
 var actualizar;
 var recoger;
 var voz;
+var level;
+var textlevel;
 
 var game = new Phaser.Game(config);
 
@@ -96,6 +98,9 @@ function create ()
     //  Player physics properties. Give the little guy a slight bounce.
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
+    
+
+    
 
     //  Our player animations, turning, walking left and walking right.
     this.anims.create({
@@ -243,6 +248,10 @@ function collectStar (player, star)
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
+        
+        //add and update the level
+        level +=1;
+        textlevel.setText('level' + level);
 
     }
 }
